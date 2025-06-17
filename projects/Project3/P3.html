@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Project 3 - Dip Coating Machine</title>
+  <link rel="stylesheet" href="../../css/style.css" />
+  <style>
+    html, body {
+      height: 100%;
+      overflow-x: hidden;
+    }
+    .project-sticky-wrapper {
+      display: flex;
+      align-items: flex-start;
+      gap: 4rem;
+      width: 100%;
+    }
+    .project-sticky-text {
+      position: -webkit-sticky;
+      position: sticky;
+      top: 4rem;
+      flex-shrink: 0;
+      flex-basis: 360px;
+      max-width: 360px;
+      align-self: flex-start;
+      line-height: 1.9;
+    }
+    .project-scroll-images {
+      flex: 1 1 600px;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+    /* Fade-in animation for images */
+    .project-scroll-images img {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.6s ease forwards;
+    }
+    .project-scroll-images img:nth-child(1) { animation-delay: 0.1s; }
+    .project-scroll-images img:nth-child(2) { animation-delay: 0.2s; }
+    .project-scroll-images img:nth-child(3) { animation-delay: 0.3s; }
+    .project-scroll-images img:nth-child(4) { animation-delay: 0.4s; }
+    .project-scroll-images img:nth-child(5) { animation-delay: 0.5s; }
+
+    .project-image {
+      max-width: 640px;
+      width: 100%;
+      margin: 0 auto;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+      }
+      .container > div {
+        max-width: 100% !important;
+      }
+      .desktop-only {
+        display: none;
+      }
+      .project-sticky-wrapper {
+        flex-direction: column;
+        gap: 2rem;
+      }
+      .project-sticky-text {
+        position: static;
+        max-width: 100%;
+        flex-basis: auto;
+      }
+    }
+    @keyframes fillProgress {
+      from { width: 0%; }
+      to { width: 100%; }
+    }
+  </style>
+</head>
+<body style="margin:0; background-color: white; overflow-x: hidden; display: flex; flex-direction: column; min-height: 100vh;">
+  <div class="mobile-warning" style="display: none;">
+    <div style="text-align: center; padding: 3rem 1rem;">
+      <h2 style="font-size: 1.5rem;">Mobile view not supported</h2>
+      <p>Redirecting to home in <span id="countdown">3</span>...</p>
+    </div>
+  </div>
+  <div id="loader" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: white; display: flex; align-items: center; justify-content: center; z-index: 9999;">
+    <div style="width: 120px; height: 4px; background: #eee; border-radius: 2px; overflow: hidden;">
+      <div id="progress-bar" style="width: 0%; height: 100%; background: #0071e3; animation: fillProgress 2s ease forwards;"></div>
+    </div>
+  </div>
+
+  <main class="project-page-wrapper" style="flex-direction: column; align-items: flex-start; gap: 4rem; padding-top: 3rem;">
+    <div class="container project-sticky-wrapper">
+      <!-- Sticky Text Column -->
+      <div class="project-sticky-text">
+        <h1 style="font-size: 2.25rem; font-weight: 600; line-height: 1.15;">Dip Coating Research Machine Prototype</h1>
+        <p style="margin-top: 0.5rem; margin-bottom: 0.75rem; font-size: 0.95rem; color: #555;">Mechanical Designer & Fabricator</p>
+        <p style="margin-top: 1rem;">
+          Designed and prototyped a custom dip coating machine to explore DFMA principles in academic environments. Two versions were fabricated—one assembled with adhesive and another using only mechanical joints—to assess manufacturability and repeatability.
+        </p>
+        <p style="margin-top: 1rem;">
+          The machine features a stepper-motor-driven Z-axis, programmable dipping cycles, and adjustable depth and timing. The structure was built entirely using 3D-printed components and laser-cut MDF panels for cost-effective and rapid prototyping.
+        </p>
+        <div class="desktop-only" style="margin-top: 4rem; display: flex; justify-content: flex-start; gap: 1rem;">
+          <a href="../Project2/P2.html" class="btn-secondary" style="font-size: 0.8rem; font-weight: 400; padding: 0.4rem 1rem; background-color: #f0f0f0;">←</a>
+          <a href="../Project4/P4.html" class="btn-secondary" style="font-size: 0.8rem; font-weight: 400; padding: 0.4rem 1rem; background-color: #f0f0f0;">→</a>
+          <a href="../../index.html#portfolio" class="btn-secondary" style="font-size: 0.75rem; font-weight: 400; padding: 0.35rem 0.9rem; background-color: #f0f0f0;" title="Back to Portfolio">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" class="bi bi-archive-fill" viewBox="0 0 16 16">
+              <path d="M12.643 15C13.979 15 15 13.845 15 12.5V5H1v7.5C1 13.845 2.021 15 3.357 15zM5.5 7h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1 0-1M.8 1a.8.8 0 0 0-.8.8V3a.8.8 0 0 0 .8.8h14.4A.8.8 0 0 0 16 3V1.8a.8.8 0 0 0-.8-.8z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Scrollable Images Column -->
+      <div>
+        <div class="project-scroll-images" style="margin-top: 223rem;">
+          <img src="P3_0.png" class="project-image" alt="Dip Coating Machine - Full Assembly">
+          <img src="P3_1.png" class="project-image" alt="Stepper Motor Z-Axis Detail">
+          <img src="P3_2.png" class="project-image" alt="Sample Dipping in Progress">
+          <img src="P3_3.png" class="project-image" alt="3D-Printed Components">
+          <img src="P3_Video.gif" class="project-image" alt="Demo">
+          <img src="P3_4.png" class="project-image" alt="Control Interface and Electronics">
+        </div>
+      </div>
+    </div>
+
+  </main>
+<script>
+  window.addEventListener('load', () => {
+    const loader = document.getElementById('loader');
+    if (loader) loader.style.display = 'none';
+  });
+</script>
+<script>
+  if (window.innerWidth <= 768) {
+    document.querySelector('main').style.display = 'none';
+    document.querySelector('.mobile-warning').style.display = 'block';
+    let count = 3;
+    const interval = setInterval(() => {
+      count--;
+      document.getElementById('countdown').textContent = count;
+      if (count === 0) {
+        clearInterval(interval);
+        window.location.href = "../../index.html";
+      }
+    }, 1000);
+  }
+</script>
+</body>
+</html>

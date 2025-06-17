@@ -12,15 +12,14 @@
 <body>
   <header class="navbar">
     <div class="container navbar-content">
-      <div class="logo-group">
+      <a href="https://www.youtube.com/@diegoquiintero" class="logo-group" target="_blank" aria-label="Visit Diego's YouTube channel">
         <img src="assets/hero.svg" alt="Icon" class="logo-icon" />
-      </div>
+      </a>
       <nav role="navigation" aria-label="Main menu">
         <ul class="nav-list">
           <li><a href="#hero" class="nav-link active">Home</a></li>
           <li><a href="#certified" class="nav-link">Certifications</a></li>
           <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
-          <li><a href="mailto:diegoisaiquintero@hotmail.com" class="nav-link">Contact me</a></li>
         </ul>
       </nav>
       <div class="toggles">
@@ -38,15 +37,15 @@
     <section id="hero" class="container hero">
       <div class="hero-content">
         <h1>Hi, I’m Diego Quintero.</h1>
-        <p>A Mechatronics Engineer with hands-on experience in 3D CAD modeling, GD&amp;T, and rapid prototyping tools. A design nerd who enjoys learning, building, and obsessing over the small details.</p>
+        <p>I hold a B.Sc. in Mechatronics Engineering, with hands-on experience in 3D CAD modeling, GD&amp;T, and rapid prototyping tools. A design nerd who enjoys learning, building, and obsessing over the small details.</p>
         <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1rem;">
-          <a href="assets/Resume_DiegoQuintero.pdf" class="btn-primary cv-preview">
+          <a href="#portfolio" class="btn-primary cv-preview" style="font-weight: 600;">
+            <i class="fas fa-eye"></i> <span class="glass-text">View Portfolio</span>
+          </a>
+          <a href="assets/Resume_DiegoQuintero.pdf" class="btn-secondary glassy" style="opacity: 0.85;">
             ⤓ Resume
           </a>
-          <a href="#portfolio" class="btn-secondary">
-            <i class="fas fa-eye"></i> View Portfolio
-          </a>
-          <a href="https://www.linkedin.com/in/diegoquiintero/" target="_blank" class="btn-linkedin" aria-label="Connect on LinkedIn">
+          <a href="https://www.linkedin.com/in/diegoquiintero/" target="_blank" class="btn-linkedin" style="opacity: 0.75;" aria-label="Connect on LinkedIn">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="linkedin-icon" viewBox="0 0 16 16">
               <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 
                 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 
@@ -76,7 +75,7 @@
 
     <!-- Certified By Section -->
     <section id="certified" class="container section certified-section">
-      <h2>Certified Expertise</h2>
+      <h2 class="section-heading">Certified Expertise</h2>
       <p class="portfolio-subtitle">I’m driven by a genuine <span class="underline-animate">curiosity to grow</span>. These certifications reflect the time I’ve dedicated to learning skills that matter—and enjoying the process.</p>
       <div class="fade-layer">
         <div class="logo-marquee">
@@ -98,33 +97,102 @@
         </div>
       </div>
     </section>
-    <section id="portfolio" class="portfolio-section container">
-      <h2 class="portfolio-title">Engineering <span class="gold-text">Portfolio</span></h2>
+    <div style="height: 2.5rem;"></div>
+    <section id="portfolio" class="portfolio-section">
+      <h2 class="portfolio-title section-heading">Engineering <span class="gold-text">Portfolio</span></h2>
       <p class="portfolio-subtitle">These projects not only allowed me to apply my technical skills, but gave me first-hand experience with the reality that the path to meaningful results is filled with <span class="underline-animate-alt">trial, error, and growth</span>. Each one taught me something far beyond what a classroom could offer.</p>
       <div class="project-grid">
-        <div class="project-card">
-          <h3>Cobots Assembly Line for Fiber Extrusion Device</h3>
-          <small class="project-company">Massachusetts Institute of Technology (MIT)</small>
+        <div class="project-card" style="background-image: url('assets/BackgroundP1.jpeg');">
+          <div class="project-card-inner">
+            <div class="project-card-top">
+              <div class="project-title-wrapper">
+                <h3>Cobots Assembly Line for Fiber Extrusion Device</h3>
+              </div>
+              <!-- Project 1 -->
+              <a href="projects/Project1/P1.html" class="plus-modal-trigger">
+                <div class="plus-glass-circle"><span class="card-plus-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
+                    <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"/>
+                  </svg>
+                </span></div>
+              </a>
+            </div>
+          </div>
         </div>
-        <div class="project-card">
-          <h3>Automation of CNC for Robotic Assembly Line</h3>
-          <small class="project-company">Rockwell Automation</small>
+        <div class="project-card" style="background-image: url('assets/BackgroundP2.jpeg');">
+          <div class="project-card-inner">
+            <div class="project-card-top">
+              <div class="project-title-wrapper">
+                <h3>Automation of CNC for Assembly Line</h3>
+              </div>
+              <!-- Project 2 -->
+              <a href="projects/Project2/P2.html" class="plus-modal-trigger">
+                <div class="plus-glass-circle"><span class="card-plus-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
+                    <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"/>
+                  </svg>
+                </span></div>
+              </a>
+            </div>
+          </div>
         </div>
-        <div class="project-card">
-          <h3>Dip Coating Research Machine Prototype</h3>
-          <small class="project-company">College Research Program</small>
+        <div class="project-card" style="background-image: url('assets/BackgroundP3.png');">
+          <div class="project-card-inner">
+            <div class="project-card-top">
+              <div class="project-title-wrapper">
+                <h3>Dip Coating Research Machine Prototype</h3>
+              </div>
+              <!-- Project 3 -->
+              <a href="projects/Project3/P3.html" class="plus-modal-trigger">
+                <div class="plus-glass-circle"><span class="card-plus-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
+                    <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"/>
+                  </svg>
+                </span></div>
+              </a>
+            </div>
+          </div>
         </div>
-        <div class="project-card">
-          <h3>Automated Industrial Welding Cell</h3>
-          <small class="project-company">ABB</small>
+        <div class="project-card" style="background-image: url('assets/BackgroundP4.png');">
+          <div class="project-card-inner">
+            <div class="project-card-top">
+              <div class="project-title-wrapper">
+                <h3>Automated Industrial Welding Cell</h3>
+              </div>
+              <!-- Project 4 (already done) -->
+              <a href="projects/Project4/P4.html" class="plus-modal-trigger">
+                <div class="plus-glass-circle"><span class="card-plus-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
+                    <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"/>
+                  </svg>
+                </span></div>
+              </a>
+            </div>
+          </div>
         </div>
-        <div class="project-card">
-          <h3>Low-Cost Electrospinning Machine</h3>
-          <small class="project-company">College Research Team</small>
+        <div class="project-card" style="background-image: url('assets/BackgroundP6.png');">
+          <div class="project-card-inner">
+            <div class="project-card-top">
+              <div class="project-title-wrapper">
+                <h3>Educational Line Follower Robot</h3>
+              </div>
+              <!-- Project 6 -->
+              <a href="projects/Project6/P6.html" class="plus-modal-trigger">
+                <div class="plus-glass-circle"><span class="card-plus-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
+                    <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"/>
+                  </svg>
+                </span></div>
+              </a>
+            </div>
+          </div>
         </div>
-        <div class="project-card">
-          <h3>Line Follower Robot</h3>
-          <small class="project-company">College Club Team</small>
+        <div class="project-card project-coming-soon" style="background-image: url('assets/Team.png'); background-size: cover; background-position: center;">
+          <div class="project-card-inner">
+            <div class="project-card-top">
+              <div class="portfolio-tagline glass-bottom-right">Greetings to the team!</div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -135,6 +203,7 @@
   </div>
 
   <script src="js/script.js"></script>
+  <!-- Carousel left/right navigation removed: only progress indicator (dots) remains -->
   <script>
     const modal = document.getElementById("certModal");
     const modalImg = document.getElementById("certModalImg");
@@ -171,142 +240,6 @@
   });
   </script>
 
-  <script>
-    const projectCards = document.querySelectorAll('.project-card');
-    const projectModal = document.getElementById('projectModal');
-    const modalTitle = projectModal.querySelector('.modal-title');
-    const modalImages = projectModal.querySelectorAll('.modal-images img');
-    const modalDescription = projectModal.querySelector('.modal-description');
-    const modalClose = projectModal.querySelector('.modal-close');
-
-    const projectData = [
-      {
-        title: "Cobots Assembly Line for Fiber Extrusion Device",
-        description: "This is a detailed description of the first project.",
-        images: [
-          "assets/projects/project1.jpeg",
-          "assets/projects/project1b.jpeg",
-          "assets/projects/project1c.jpeg"
-        ]
-      },
-      {
-        title: "Automation of CNC for Robotic Assembly Line",
-        description: "This is a detailed description of the second project.",
-        images: [
-          "assets/projects/project2.png",
-          "assets/projects/project2b.png",
-          "assets/projects/project2c.png"
-        ]
-      },
-      {
-        title: "Dip Coating Research Machine Prototype",
-        description: "This is a detailed description of the third project.",
-        images: [
-          "assets/projects/project3.jpeg",
-          "assets/projects/project3b.jpeg",
-          "assets/projects/project3c.jpeg"
-        ]
-      },
-      {
-        title: "Automated Industrial Welding Cell",
-        description: "This is a detailed description of the fourth project.",
-        images: [
-          "assets/projects/project4.png",
-          "assets/projects/project4b.png",
-          "assets/projects/project4c.png"
-        ]
-      },
-      {
-        title: "Low-Cost Electrospinning Machine",
-        description: "This is a detailed description of the fifth project.",
-        images: [
-          "assets/projects/project1.jpeg",
-          "assets/projects/project1b.jpeg",
-          "assets/projects/project1c.jpeg"
-        ]
-      },
-      {
-        title: "Line Follower Robot",
-        description: "This is a detailed description of the sixth project.",
-        images: [
-          "assets/projects/project2.png",
-          "assets/projects/project2b.png",
-          "assets/projects/project2c.png"
-        ]
-      }
-    ];
-
-    projectCards.forEach((card, index) => {
-      card.addEventListener('click', () => {
-        const data = projectData[index];
-        modalTitle.textContent = data.title;
-        modalDescription.textContent = data.description;
-
-        // Clear subdescription and gallery
-        document.getElementById('modalSubdesc').textContent = '';
-        document.getElementById('modalGallery').innerHTML = '';
-        document.querySelector('.project-video source').src = '';
-        document.querySelector('.project-video').load();
-        document.querySelector('.project-video').style.display = 'none';
-        document.querySelector('.video-title').style.display = 'none';
-
-        if (index === 2) {
-          document.getElementById('modalSubdesc').textContent = "This prototype enabled us to conduct repeatable dip coating trials using different adhesives and speeds, helping us validate a lab-scale process for surface treatments.";
-          
-          const galleryData = [
-            { src: "assets/projects/project3.jpeg", caption: "Initial CAD model." },
-            { src: "assets/projects/project3b.jpeg", caption: "Final printed prototype." },
-            { src: "assets/projects/project3c.jpeg", caption: "Adhesive dip test setup." },
-            { src: "assets/projects/project3d.jpeg", caption: "Stepper motor integration." }
-          ];
-
-          const galleryContainer = document.getElementById('modalGallery');
-          galleryData.forEach(({ src, caption }) => {
-            const fig = document.createElement('figure');
-            fig.innerHTML = `<img src="${src}" alt="${caption}"><figcaption>${caption}</figcaption>`;
-            galleryContainer.appendChild(fig);
-          });
-
-          const videoSrc = "assets/projects/project3-demo.mp4";
-          document.querySelector('.project-video source').src = videoSrc;
-          document.querySelector('.project-video').load();
-          document.querySelector('.project-video').style.display = 'block';
-          document.querySelector('.video-title').style.display = 'block';
-        }
-      });
-    });
-
-    modalClose.addEventListener('click', () => {
-      projectModal.classList.remove('show');
-    });
-
-    window.addEventListener('click', (e) => {
-      if (e.target === projectModal) {
-        projectModal.classList.remove('show');
-      }
-    });
-
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
-        projectModal.classList.remove('show');
-      }
-    });
-  </script>
-
-<div id="projectModal" class="project-modal">
-  <div class="project-modal-content">
-    <button class="modal-close" id="closeModal">&times;</button>
-    <h3 class="modal-title"></h3>
-    <p class="modal-description"></p>
-    <div class="modal-subdescription" id="modalSubdesc"></div>
-    <div class="modal-gallery-grid" id="modalGallery"></div>
-    <h4 class="video-title" style="display: none;">Machine Working Demo</h4>
-    <video class="project-video" controls style="display: none;">
-      <source src="" type="video/mp4" />
-      Your browser does not support the video tag.
-    </video>
-  </div>
-</div>
 <footer style="text-align: center; font-size: 0.75rem; padding: 2rem 0; opacity: 0.6;">
   © 2025 Diego Quintero
 </footer>

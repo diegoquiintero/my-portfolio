@@ -147,7 +147,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const projectData = [
     {
       title: "Cobots Assembly Line for Fiber Extrusion Device",
-      description: "",
+      description: "Designed a pneumatic gripper for the xArm6 and custom fixtures aligned with machine vision. Presented to MIT, the system ensured operator safety, efficient storage, and seamless integration with the assembly flow.",
       images: [
         "assets/projects/project1.jpeg",
         "assets/projects/project1b.jpeg",
@@ -156,7 +156,7 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     {
       title: "Automation of CNC for Robotic Assembly Line",
-      description: "",
+      description: "Designed and fabricated a fixture using steel and manual milling equipment. Followed GD&T drawings to enable pneumatic pick-and-place integration with a HAAS CNC, improving accuracy and repeatability.",
       images: [
         "assets/projects/project2.png",
         "assets/projects/project2b.png",
@@ -165,7 +165,7 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     {
       title: "Dip Coating Research Machine Prototype",
-      description: "",
+      description: "Built a low-cost dip coating machine using 3D-printed components. Designed for lab use, allowing controlled immersion processes while maintaining repeatability, affordability, and ease of operation.",
       images: [
         "assets/projects/project3.jpeg",
         "assets/projects/project3b.jpeg",
@@ -174,7 +174,7 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     {
       title: "Automated Industrial Welding Cell",
-      description: "",
+      description: "Developed a digital twin and clamp-based fixture concept for ABB’s robotic welding cell. Focused on automotive chassis welding while ensuring compliance with industrial safety and automation standards.",
       images: [
         "assets/projects/project4.png",
         "assets/projects/project4b.png",
@@ -183,7 +183,7 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     {
       title: "Low-Cost Electrospinning Machine",
-      description: "",
+      description: "This is a detailed description of the fifth project.",
       images: [
         "assets/projects/project1.jpeg",
         "assets/projects/project1b.jpeg",
@@ -192,7 +192,7 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     {
       title: "Line Follower Robot",
-      description: "",
+      description: "Designed a 3D-printed chassis for a line follower robot. Built for educational purposes, enabling quick assembly and introducing robotics to middle and high school students through hands-on learning.",
       images: [
         "assets/projects/project2.png",
         "assets/projects/project2b.png",
@@ -226,15 +226,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // Special layout for project 3
       if (index === 2) {
-        if (subdescElem) {
-          subdescElem.textContent = "This prototype enabled us to conduct repeatable dip coating trials using different adhesives and speeds, helping us validate a lab-scale process for surface treatments.";
-        }
-
         const galleryData = [
           { src: "../assets/Project3/P3_0.png", caption: "Initial CAD concept" },
-          { src: "../assets/Project3/P3_1.png", caption: "Prototype Version 1" },
+          { src: "../assets/Project3/P3_1.png", caption: "Prototype version 1" },
           { src: "../assets/Project3/P3_2.png", caption: "Refined CAD model" },
-          { src: "../assets/Project3/P3_3.png", caption: "Prototype Version 2" }
+          { src: "../assets/Project3/P3_3.png", caption: "Prototype version 2" },
+          { src: "../assets/Project3/P3_4.png", caption: "Exploded view" }
         ];
 
         if (galleryElem) {
@@ -321,29 +318,9 @@ document.addEventListener('DOMContentLoaded', () => {
             }
           });
 
-          // Create and append progress indicator
+          // Create and append progress indicator (arrows removed)
           const progress = document.createElement('div');
           progress.className = 'carousel-progress';
-
-          const arrowLeft = document.createElement('span');
-          arrowLeft.textContent = '←';
-          arrowLeft.className = 'arrow';
-
-          const arrowRight = document.createElement('span');
-          arrowRight.textContent = '→';
-          arrowRight.className = 'arrow';
-
-          arrowLeft.addEventListener('click', (e) => {
-            e.stopPropagation();
-            current = (current - 1 + galleryData.length) % galleryData.length;
-            updateGallery();
-          });
-
-          arrowRight.addEventListener('click', (e) => {
-            e.stopPropagation();
-            current = (current + 1) % galleryData.length;
-            updateGallery();
-          });
 
           const dots = [];
 
@@ -353,9 +330,6 @@ document.addEventListener('DOMContentLoaded', () => {
             dots.push(dot);
             progress.appendChild(dot);
           });
-
-          progress.insertBefore(arrowLeft, dots[0]);
-          progress.appendChild(arrowRight);
 
           galleryElem.parentElement.appendChild(progress);
 
@@ -376,6 +350,108 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         // Video display for project 3 removed
+      }
+
+      // Special layout for project 4
+      if (index === 3) {
+        const galleryData = [
+          { src: "../assets/Project4/P4-0.png", caption: "Welding cell CAD overview" },
+          { src: "../assets/Project4/P4-1.png", caption: "Top view of welding cell CAD" },
+          { src: "../assets/Project4/P4-2.png", caption: "Fixture design for welding components" },
+          { src: "../assets/Project4/P4-3.png", caption: "Clamp mounting proposal on fixture" },
+          { src: "../assets/Project4/P4-4.png", caption: "Inspection orientation test #1" },
+          { src: "../assets/Project4/P4-5.png", caption: "Inspection orientation test #2" }
+        ];
+
+        if (galleryElem) {
+          galleryElem.innerHTML = '';
+
+          const oldProgress = galleryElem.parentElement.querySelector('.carousel-progress');
+          if (oldProgress) oldProgress.remove();
+
+          galleryData.forEach(({ src, caption }) => {
+            const fig = document.createElement('figure');
+            fig.innerHTML = `<img src="${src}" alt="${caption}"><figcaption>${caption}</figcaption>`;
+            galleryElem.appendChild(fig);
+          });
+
+          let current = 0;
+          let updateGallery = () => {
+            const figures = galleryElem.querySelectorAll('figure');
+            figures.forEach((fig, i) => {
+              fig.classList.remove('left', 'center', 'right');
+              if (i === current) {
+                fig.classList.add('center');
+              } else if (i === (current + 1) % figures.length) {
+                fig.classList.add('right');
+              } else if (i === (current - 1 + figures.length) % figures.length) {
+                fig.classList.add('left');
+              }
+            });
+          };
+          updateGallery();
+          galleryElem.addEventListener('click', () => {
+            current = (current + 1) % galleryData.length;
+            updateGallery();
+          });
+
+          document.addEventListener('keydown', (e) => {
+            if (!projectModal.classList.contains("show")) return;
+            if (e.key === "ArrowRight") {
+              current = (current + 1) % galleryData.length;
+              updateGallery();
+            } else if (e.key === "ArrowLeft") {
+              current = (current - 1 + galleryData.length) % galleryData.length;
+              updateGallery();
+            }
+          });
+
+          let startX = 0;
+          galleryElem.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].clientX;
+          });
+
+          galleryElem.addEventListener('touchend', (e) => {
+            const endX = e.changedTouches[0].clientX;
+            const deltaX = endX - startX;
+            if (Math.abs(deltaX) > 40) {
+              if (deltaX < 0) {
+                current = (current + 1) % galleryData.length;
+              } else {
+                current = (current - 1 + galleryData.length) % galleryData.length;
+              }
+              updateGallery();
+            }
+          });
+
+          const progress = document.createElement('div');
+          progress.className = 'carousel-progress';
+
+          const dots = [];
+
+          galleryData.forEach((_, i) => {
+            const dot = document.createElement('span');
+            dot.classList.add('dot');
+            dots.push(dot);
+            progress.appendChild(dot);
+          });
+
+          galleryElem.parentElement.appendChild(progress);
+
+          const updateProgress = () => {
+            dots.forEach((dot, i) => {
+              dot.classList.toggle('active', i === current);
+            });
+          };
+
+          const originalUpdateGallery = updateGallery;
+          function updateGalleryWithProgress() {
+            originalUpdateGallery();
+            updateProgress();
+          }
+          updateGallery = updateGalleryWithProgress;
+          updateProgress();
+        }
       }
 
       projectModal.classList.add("show", "animate");
