@@ -229,6 +229,7 @@
 /* Scroll suave */
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 7rem;  /* ensure anchor links account for navbar height in Chrome */
 }
 
 /* Tipografía y contenedor */
@@ -1067,13 +1068,7 @@ a,
   color: rgba(235, 235, 245, 0.6);
 }
 /* Ensure section headings are visible below fixed navbar when using anchor links */
-section[id] {
-  scroll-margin-top: 5.40rem;
-}
-
-section#portfolio {
-  scroll-margin-top: 3.9rem;
-}
+/* Remove scroll-margin-top anchor offset hacks, now handled by scroll-padding-top on html */
 
 /* Underline animation for span */
 /* === Underline Animate (no animation, always on) === */
@@ -1416,4 +1411,12 @@ section#portfolio {
 
 .nav-list-wrapper {
   margin-top: 0.75rem;
+}
+section#certified {
+  scroll-margin-top: -1.6rem;
+}
+
+/* Increase offset for Portfolio anchor */
+section#portfolio {
+  scroll-margin-top: -3.1rem; /* adjust to taste so it sits lower under navbar */
 }
