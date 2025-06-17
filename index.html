@@ -10,6 +10,12 @@
   <meta name="theme-color" content="#ffffff" id="meta-theme-color" />
 </head>
 <body>
+  <div class="mobile-warning" style="display: none;">
+    <div style="text-align: center; padding: 3rem 1rem;">
+      <h2 style="font-size: 1.5rem;">Mobile view not supported</h2>
+      <p>Redirecting to LinkedIn in <span id="countdown">3</span>...</p>
+    </div>
+  </div>
   <header class="navbar">
     <div class="container navbar-content">
       <a href="https://www.youtube.com/@diegoquiintero" class="logo-group" target="_blank" aria-label="Visit Diego's YouTube channel">
@@ -243,5 +249,23 @@
 <footer style="text-align: center; font-size: 0.75rem; padding: 2rem 0; opacity: 0.6;">
   © 2025 Diego Quintero
 </footer>
+<script>
+  if (window.innerWidth <= 768) {
+    const mainContent = document.querySelector('main');
+    if (mainContent) mainContent.style.display = 'none';
+    const warning = document.querySelector('.mobile-warning');
+    if (warning) warning.style.display = 'block';
+
+    let count = 3;
+    const interval = setInterval(() => {
+      count--;
+      document.getElementById('countdown').textContent = count;
+      if (count === 0) {
+        clearInterval(interval);
+        window.location.href = "https://www.linkedin.com/in/diegoquiintero/";
+      }
+    }, 1000);
+  }
+</script>
 </body>
 </html>
