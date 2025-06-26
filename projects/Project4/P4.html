@@ -6,15 +6,15 @@
   <title>Project 4 - Welding Cell</title>
   <link rel="stylesheet" href="../../css/style.css" />
   <style>
-    html, body {
-      height: 100%;
-      overflow-x: hidden;
-    }
+    @keyframes fillProgress { from { width: 0%; } to { width: 100%; } }
+    html, body { height: 100%; overflow-x: hidden; }
     .project-sticky-wrapper {
-      display: flex;
-      align-items: flex-start;
+      display: grid;
+      grid-template-columns: 360px 1fr;
+      align-items: start;
       gap: 4rem;
       width: 100%;
+      padding: 3rem 2rem 2rem;
     }
     .project-sticky-text {
       position: -webkit-sticky;
@@ -24,7 +24,7 @@
       flex-basis: 360px;
       max-width: 360px;
       align-self: flex-start;
-      line-height: 1.75;
+      line-height: 1.9;
     }
     .project-scroll-images {
       flex: 1 1 600px;
@@ -32,7 +32,6 @@
       flex-direction: column;
       gap: 2rem;
     }
-    /* Fade-in animation for images */
     .project-scroll-images img {
       opacity: 0;
       transform: translateY(20px);
@@ -43,86 +42,90 @@
     .project-scroll-images img:nth-child(3) { animation-delay: 0.3s; }
     .project-scroll-images img:nth-child(4) { animation-delay: 0.4s; }
     .project-scroll-images img:nth-child(5) { animation-delay: 0.5s; }
-    @keyframes fadeInUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    .project-image {
+      max-width: 640px;
+      width: 100%;
+      margin: 0 auto;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
     }
-    @keyframes fillProgress {
-      from { width: 0%; }
-      to { width: 100%; }
+    @keyframes fadeInUp {
+      to { opacity: 1; transform: translateY(0); }
     }
     @media (max-width: 768px) {
-      .container {
+      .project-sticky-wrapper {
+        display: flex;
         flex-direction: column;
+        gap: 2rem;
+        padding: 2rem;
       }
-      .container > div {
-        max-width: 100% !important;
+      .project-sticky-text {
+        position: relative;
+        top: auto;
+        max-width: 100%;
+        flex-basis: auto;
+        display: block;
+      }
+      .project-scroll-images {
+        order: 1;
       }
       .desktop-only {
         display: none;
-      }
-      .project-sticky-wrapper {
-        flex-direction: column;
-        gap: 2rem;
-      }
-      .project-sticky-text {
-        position: static;
-        max-width: 100%;
-        flex-basis: auto;
       }
     }
   </style>
 </head>
 <body style="margin:0; background-color: white; overflow-x: hidden; display: flex; flex-direction: column; min-height: 100vh;">
+  <div id="loader" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: white; display: flex; align-items: center; justify-content: center; z-index: 9999;">
+    <div style="width: 120px; height: 4px; background: #eee; border-radius: 2px; overflow: hidden;">
+      <div id="progress-bar" style="width: 0%; height: 100%; background: #0071e3; animation: fillProgress 2s ease forwards;"></div>
+    </div>
+  </div>
+  <a href="../../index.html#portfolio" style="position: absolute; top: 1rem; right: 1rem; color: black; z-index: 1000;">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+      <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
+    </svg>
+  </a>
   <div class="mobile-warning" style="display: none;">
     <div style="text-align: center; padding: 3rem 1rem;">
       <h2 style="font-size: 1.5rem;">Mobile view not supported</h2>
       <p>Redirecting to home in <span id="countdown">3</span>...</p>
     </div>
   </div>
-  <div id="loader" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: white; display: flex; align-items: center; justify-content: center; z-index: 9999;">
-    <div style="width: 120px; height: 4px; background: #eee; border-radius: 2px; overflow: hidden;">
-      <div id="progress-bar" style="width: 0%; height: 100%; background: #0071e3; animation: fillProgress 2s ease forwards;"></div>
-    </div>
-  </div>
 
-  <main class="project-page-wrapper" style="flex-direction: column; align-items: flex-start; gap: 4rem; padding-top: 3rem;">
-    <div class="container project-sticky-wrapper">
-      <!-- Sticky Text Column -->
-      <div class="project-sticky-text">
-        <h1 style="font-size: 2.25rem; font-weight: 600; line-height: 1.15;">Automated Industrial Welding Cell</h1>
-        <p style="margin-top: 0.5rem; font-size: 0.95rem; color: #555;">Mechanical Designer</p>
-        <p style="margin-top: 1rem;">
-          As part of a collaboration with ABB Robotics, I developed a fixture system to stabilize and align complex metal frames for a proposed industrial welding cell using robotic arms. The fixture was oriented and designed to ensure easy detection by vision systems. I modeled the entire assembly in CAD, incorporating interlocks and safety accessories, which were integrated into the layout used for presentation to stakeholders.
-        </p>
-        <p style="margin-top: 1rem;">
-          The project also involved simulating robot paths and documenting all work under industrial drafting standards as part of the proposal package.
-        </p>
-        <div class="desktop-only" style="margin-top: 3rem; display: flex; justify-content: flex-start; gap: 1rem;">
-          <a href="../Project3/P3.html" class="btn-secondary" style="font-size: 0.8rem; font-weight: 400; padding: 0.4rem 1rem; background-color: #f0f0f0;">←</a>
-          <a href="../Project6/P6.html" class="btn-secondary" style="font-size: 0.8rem; font-weight: 400; padding: 0.4rem 1rem; background-color: #f0f0f0;">→</a>
-          <a href="../../index.html#portfolio" class="btn-secondary" style="font-size: 0.75rem; font-weight: 400; padding: 0.35rem 0.9rem; background-color: #f0f0f0;" title="Back to Portfolio">
-            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" class="bi bi-archive-fill" viewBox="0 0 16 16">
-              <path d="M12.643 15C13.979 15 15 13.845 15 12.5V5H1v7.5C1 13.845 2.021 15 3.357 15zM5.5 7h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1 0-1M.8 1a.8.8 0 0 0-.8.8V3a.8.8 0 0 0 .8.8h14.4A.8.8 0 0 0 16 3V1.8a.8.8 0 0 0-.8-.8z"/>
-            </svg>
-          </a>
-        </div>
-      </div>
-
-      <!-- Scrollable Images Column -->
-      <div>
-        <div class="project-scroll-images" style="margin-top: 106rem;">
-          <img src="P4-0.png" alt="Overview" style="width: 100%; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.15);">
-          <img src="P4-1.jpeg" alt="Top View" style="width: 100%; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.15);">
-          <img src="P4-2.png" alt="Fixture Design" style="width: 100%; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.15);">
-          <img src="P4-3.png" alt="Clamp System" style="width: 100%; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.15);">
-          <img src="P4-4.png" alt="Inspection Test 1" style="width: 100%; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.15);">
-        </div>
+  <main class="container project-sticky-wrapper">
+    <!-- Sticky Text Column -->
+    <div class="project-sticky-text">
+      <h1 style="font-size: 2.25rem; font-weight: 600; line-height: 1.15;">Automated Industrial Welding Cell</h1>
+      <p style="margin-top: 0.5rem; font-size: 0.95rem; color: #555;">Mechanical Designer</p>
+      <p style="margin-top: 1rem;">
+        As part of a collaboration with ABB Robotics, I developed a fixture system to stabilize and align complex metal frames for a proposed industrial welding cell using robotic arms. The fixture was oriented and designed to ensure easy detection by vision systems. I modeled the entire assembly in CAD, incorporating interlocks and safety accessories, which were integrated into the layout used for presentation to stakeholders.
+      </p>
+      <p style="margin-top: 1rem;">
+        The project also involved simulating robot paths and documenting all work under industrial drafting standards as part of the proposal package.
+      </p>
+      <div class="desktop-only" style="margin-top: 4rem; display: flex; justify-content: flex-start; gap: 1rem;">
+        <a href="../Project3/P3.html" class="btn-secondary" style="font-size: 0.8rem; font-weight: 400; padding: 0.4rem 1rem; background-color: #f0f0f0;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"/>
+          </svg>
+        </a>
+        <a href="../Project6/P6.html" class="btn-secondary" style="font-size: 0.8rem; font-weight: 400; padding: 0.4rem 1rem; background-color: #f0f0f0;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"/>
+          </svg>
+        </a>
       </div>
     </div>
 
+    <!-- Scrollable Images Column -->
+    <div class="project-scroll-images">
+      <img src="P4-0.png" class="project-image" alt="Overview">
+      <img src="P4-1.jpeg" class="project-image" alt="Top View">
+      <img src="P4-2.png" class="project-image" alt="Fixture Design">
+      <img src="P4-3.png" class="project-image" alt="Clamp System">
+      <img src="P4-4.png" class="project-image" alt="Inspection Test 1">
+    </div>
   </main>
 <script>
   window.addEventListener('load', () => {
